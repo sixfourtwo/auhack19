@@ -12,19 +12,19 @@
   <Id>75c8ef98-79af-46aa-b27e-8fc0ab4fb02b</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
-  <Version>1.0.0.0</Version>
-  <ProviderName>[Provider name]</ProviderName>
+  <Version>0.0.0.1</Version>
+  <ProviderName>Steeaboo</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
   <DisplayName DefaultValue="OutlookTagger" />
-  <Description DefaultValue="[Outlook Add-in description]"/>
+  <Description DefaultValue="Milky Wizards will tag all your photos"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-  <SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]" />
+  <SupportUrl DefaultValue="https://localhost:3000/" />
 
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>

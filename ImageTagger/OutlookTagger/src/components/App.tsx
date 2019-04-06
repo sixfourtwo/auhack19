@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Button, ButtonType } from 'office-ui-fabric-react';
-import Header from './Header';
-import HeroList, { HeroListItem } from './HeroList';
+//import { Button, ButtonType } from 'office-ui-fabric-react';
+//import Header from './Header';
+//import HeroList, { HeroListItem } from './HeroList';
+import DragUpload from './dragupload/DragUpload';
 import Progress from './Progress';
 
 
@@ -12,7 +13,7 @@ export interface AppProps {
 }
 
 export interface AppState {
-    listItems: HeroListItem[];
+    // listItems: HeroListItem[];
 }
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -66,11 +67,12 @@ export default class App extends React.Component<AppProps, AppState> {
 
         return (
             <div className='ms-welcome'>
-                <Header logo='assets/logo-filled.png' title={this.props.title} message='Welcome' />
+                {/* <Header logo='assets/logo-filled.png' title={this.props.title} message='Welcome' />
                 <HeroList message='Discover what OutlookTagger can do for you today!' items={this.state.listItems}>
                     <p className='ms-font-l'>Modify the source files, then click <b>Run</b>.</p>
                     <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={this.click}>Run</Button>
-                </HeroList>
+                </HeroList> */}
+                <DragUpload/>
             </div>
         );
     }
