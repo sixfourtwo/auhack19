@@ -17,7 +17,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
   <DisplayName DefaultValue="OutlookTagger" />
-  <Description DefaultValue="Milky Wizards will tag all your photos"/>
+  <Description DefaultValue="TODO: Chris vi skal finde på noget super nice og attraktivt at skrive her :thinking: og hvad med sugoondesenuts"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
@@ -65,10 +65,35 @@
     </Requirements>
     <Hosts>
       <Host xsi:type="MailHost">
+       
 
         <DesktopFormFactor>
           <!-- Location of the Functions that UI-less buttons can trigger (ExecuteFunction Actions). -->
           <FunctionFile resid="functionFile" />
+
+            <!-- Message Compose -->
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgComposeCmdGroup">
+                <Label resid="groupLabel"/>
+                <Control xsi:type="Button" id="msgComposeInsertDefaultOutTag">
+                  <Label resid="ribbonLabel"/>
+                  <Supertip>
+                    <Title resid="ribbonSuperTipTitle"/>
+                    <Description resid="ribbonSuperTipDescription"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon16"/>
+                    <bt:Image size="32" resid="icon32"/>
+                    <bt:Image size="80" resid="icon80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="messageReadTaskPaneUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
 
           <!-- Message Read -->
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
@@ -79,10 +104,10 @@
                 <Label resid="groupLabel" />
                 <!-- Launch the add-in : task pane button -->
                 <Control xsi:type="Button" id="msgReadOpenPaneButton">
-                  <Label resid="paneReadButtonLabel" />
+                  <Label resid="ribbonLabel" />
                   <Supertip>
-                    <Title resid="paneReadSuperTipTitle" />
-                    <Description resid="paneReadSuperTipDescription" />
+                    <Title resid="ribbonSuperTipTitle" />
+                    <Description resid="ribbonSuperTipDescription" />
                   </Supertip>
                   <Icon>
                     <bt:Image size="16" resid="icon16" />
@@ -111,15 +136,17 @@
       <bt:Urls>
         <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
         <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
+        <bt:Url id="messageComposeTaskPaneUrl" DefaultValue="https://localhost:3000/msg-compose/compose-OutTag.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
-        <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
-        <bt:String id="paneReadButtonLabel" DefaultValue="Display all properties"/>
-        <bt:String id="paneReadSuperTipTitle" DefaultValue="Get all properties"/>
+        <bt:String id="groupLabel" DefaultValue="OutlookTagger"/>
+        <!-- Ribbon -->
+        <bt:String id="ribbonLabel" DefaultValue="Attach File via OutlookTagger"/>
+        <bt:String id="ribbonSuperTipTitle" DefaultValue="Attach File via OutlookTagger"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens a pane displaying all available properties. This is an example of a button that opens a task pane."/>
+        <!-- Ribbon -->
+        <bt:String id="ribbonSuperTipDescription" DefaultValue="TODO: Put some nice supertip description"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
