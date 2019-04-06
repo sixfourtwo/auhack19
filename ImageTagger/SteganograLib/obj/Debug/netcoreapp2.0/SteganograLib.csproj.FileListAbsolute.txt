@@ -1,0 +1,9 @@
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\bin\Debug\netcoreapp2.0\SteganograLib.deps.json
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\bin\Debug\netcoreapp2.0\SteganograLib.dll
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\bin\Debug\netcoreapp2.0\SteganograLib.pdb
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\obj\Debug\netcoreapp2.0\SteganograLib.csprojResolveAssemblyReference.cache
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\obj\Debug\netcoreapp2.0\SteganograLib.csproj.CoreCompileInputs.cache
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\obj\Debug\netcoreapp2.0\SteganograLib.AssemblyInfoInputs.cache
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\obj\Debug\netcoreapp2.0\SteganograLib.AssemblyInfo.cs
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\obj\Debug\netcoreapp2.0\SteganograLib.dll
+C:\Users\chris\git\auhack19\ImageTagger\SteganograLib\obj\Debug\netcoreapp2.0\SteganograLib.pdb
