@@ -1,7 +1,7 @@
 # importing the requests library 
 import requests 
 import json
-  
+
 # api-endpoint 
 URL = "https://quantum-spring-236900.appspot.com/water_mark"
   
@@ -10,8 +10,8 @@ URL = "https://quantum-spring-236900.appspot.com/water_mark"
 # data is picture data
 # tagString is the text to embed into picture.
 data = { 
-	"data":"This is the original text",
-	"tagString":" Yesyesyes"
+    "data":"This is the original text",
+    "tagString":" Yesyesyes"
  }
 
 #f= open("../Images/lego_porche.png","r")
@@ -22,7 +22,7 @@ data = {
 #strArr = str(myArr)
 
 allData = { "data" : data["data"], 
-			"tagString" : "test tag" }
+            "tagString" : data["tagString"] }
 data.update(allData)
 
 PARAMS = json.dumps(data)
