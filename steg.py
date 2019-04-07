@@ -15,13 +15,10 @@ def encodeMsg(data, msg):
     
     for x in range(8, len(binString)+8, 8):
         currWord = binString[prevWord:x]
-#        print(currWord)
         prevWord = x
         
         msb = "{0:b}".format(int(enc[iterator,0]))
         enc[iterator,0] = int(msb[:-8] + currWord, 2)
-        
-#        print(enc[iterator,0])
         
         iterator += 1
 
@@ -31,11 +28,8 @@ def encodeMsg(data, msg):
 def decodeMsg(data):
     enc2 = dct(data,2)/850
     totalMsg = 0
-#    print(enc2[0,0])
-#    print(enc2[0:5,0])
 
     for x in range(0, 5,  1):
-#        print(enc2[x,0])
         msb = "{0:b}".format(int(enc2[x,0]))[-8:];
         totalMsg = int(msb,2 ) # + msb2 + msb3 + msb4
         print(chr(totalMsg))
