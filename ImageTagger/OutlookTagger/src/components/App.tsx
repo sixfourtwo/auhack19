@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DragUpload from './dragupload/DragUpload';
+import Progress from './Progress';
 
 
 
@@ -9,7 +10,6 @@ export interface AppProps {
 }
 
 export interface AppState {
-
 }
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -37,12 +37,6 @@ export default class App extends React.Component<AppProps, AppState> {
                 }
             ]
         });
-    }
-
-    click = async () => {
-        /**
-         * Insert your Outlook code here
-         */
     }
 
     render() {
