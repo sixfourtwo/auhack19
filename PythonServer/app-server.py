@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_restful import Api, Resource, reqparse
 import json
 import socket
+import test_dct
 
 app = Flask(__name__)
 api = Api(app)
@@ -22,10 +23,8 @@ waterMarkTxt = " pyServ(R) "
 
 class WaterMark(Resource):
 
-    def home(self):
-        return 'Made by Steeaboo at AUHack 2019'
-
     def post(self):
+        #print(json.loads(request.data))
         #getting the data in json, load into python object
         dataIn = json.loads(request.data)
 
@@ -38,7 +37,9 @@ class WaterMark(Resource):
         print("Data to be water marked was submitted")
 
         #CALL WATERMARKING FUNCTION(s) HERE!
-        WaterMarkedData = dataJson[0]["data"] + dataJson[0]["tagString"]
+        WaterMarkedData = test_dct.waterMarker(dataJson[0]["data"], dataJson[0]["tagString"])
+
+        #WaterMarkedData = dataJson[0]["data"] + dataJson[0]["tagString"]
         myNewData = { "data" : WaterMarkedData }
         dataJson[0].update(myNewData)
 
@@ -47,10 +48,9 @@ class WaterMark(Resource):
         #Return the altered data.
         return jsonify(dataJson[0])#, 201 #Created - HTTP status code, not working with jsonify..
 
-	#Don't really need these - just here for the view.
+    #Don't really need these - just here for the view.
     def get(self):
-        retVal = "Made by Steeaboo at AUHack 20192"
-        return retVal
+        return 0
 
     def put(self):
         return 0
