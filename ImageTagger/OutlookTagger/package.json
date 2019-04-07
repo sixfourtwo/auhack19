@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@microsoft/office-js-helpers": "^1.0.2",
+        "axios": "^0.18.0",
         "core-js": "^2.6.1",
         "office-ui-fabric-react": "^6.138.1",
         "react": "^16.8.1",
