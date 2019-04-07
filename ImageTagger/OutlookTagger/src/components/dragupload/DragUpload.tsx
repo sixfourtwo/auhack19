@@ -1,6 +1,7 @@
 import * as React from "react";
 import "office-ui-fabric-react/dist/css/fabric.min.css";
 import { Spinner } from "office-ui-fabric-react";
+import axios from "axios";
 
 /**
  * Heavily based on
@@ -12,17 +13,22 @@ export interface DragUploadProps {}
 export interface DragUploadState {
   dragging: Boolean;
   waiting: Boolean;
+  error: Boolean;
+  ermsg: string;
 }
 
 export default class DragUpload extends React.Component<DragUploadProps, DragUploadState>{
   // VARIABLES
   dropRef: any = React.createRef();
   dragCounter: number;
+  backendURL: string = "http://localhost:3000/";
 
   // STATE
   state = {
     dragging: false,
-    waiting: false
+    waiting: false,
+    error: false,
+    ermsg: ""
   };
 
   // LIFECYCLE
@@ -78,12 +84,45 @@ export default class DragUpload extends React.Component<DragUploadProps, DragUpl
 
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       //this.props.handleDrop(e.dataTransfer.files)
+      this.tagImage(e.dataTransfer.file);
       e.dataTransfer.clearData();
       this.dragCounter = 0;
       this.setState({ dragging: false });
       this.setState({ waiting: true });
     }
   };
+
+  tagImage(img: any){
+    axios.post(this.backendURL, {
+      data: img,
+      tag: "Bob is smart, be like bob"
+    })
+    .then(r => {
+
+      let response = JSON.parse(r.data);
+      let img = response.data;
+
+      Office.context.mailbox.item.addFileAttachmentAsync(
+        img, "bliblob.jpg", {asyncContext: null}, (r) => {
+          if(r.status == Office.AsyncResultStatus.Failed){
+            this.setState({
+              error: true,
+              ermsg: "Getting wild error bro"
+            })
+          }
+          else{
+            this.setState({waiting: false});
+          }
+        }
+      )
+    })
+    .catch(e => {
+      this.setState({
+        error: true,
+        ermsg: "Getting wild error bro"
+      })
+    })
+  }
 
   // RENDER
   render() {
