@@ -81,7 +81,7 @@ def str2bin(text, encoding='utf-8', errors='surrogatepass'):
 
 def bin2str(bits, encoding='utf-8', errors='surrogatepass'):
   n = int(bits, 2)
-  return n.to_bytes((n.bit_length() + 7) // 8, 'big').decode(encoding, errors) or '\0'
+  return n.to_bytes((n.bit_length() + 7) // 8, 'big').decode(encoding="utf8", errors='ignore') or '\0'
 
 def _end_of_msg(msg):
   if len(msg) > 22:
@@ -128,10 +128,10 @@ def _maze_derunner(coef, MIN=255):
 if __name__ == '__main__':
   image = open_image_as_array('yoda_lego_two.jpg')
 
-  img2 = open_image_as_array('yoda_lego.jpg')
-  img2_1 = str(img2[:,:,0].tolist()).replace('[','').replace(']','')
-  img2_2 = str(img2[:,:,1].tolist()).replace('[','').replace(']','')
-  img2_3 = str(img2[:,:,2].tolist()).replace('[','').replace(']','')
+#  img2 = open_image_as_array('yoda_lego.jpg')
+#  img2_1 = str(img2[:,:,0].tolist()).replace('[','').replace(']','')
+#  img2_2 = str(img2[:,:,1].tolist()).replace('[','').replace(']','')
+#  img2_3 = str(img2[:,:,2].tolist()).replace('[','').replace(']','')
 
   # image = image[:,:,0]
   img_shp_row = image.shape[0]//8
@@ -146,11 +146,11 @@ if __name__ == '__main__':
   # [for row in range(image.shape[0]) for col in range(image.shape[1]) if image[row, col] > 10]
   
   coef1 = bdct(c1)
-  _maze_runner(coef1, img2_1+'///')
+  _maze_runner(coef1, 'suppa///')
   recon1 = ibdct(coef1)
 
   coef2 = bdct(c2)
-  _maze_runner(coef2, 'dungo///')
+  _maze_runner(coef2, 'supp///')
   recon2 = ibdct(coef2)
 
   coef3 = bdct(c3)
@@ -164,17 +164,17 @@ if __name__ == '__main__':
   col_img = col_img/255
   # print(coef[0,0])
 
-  # plt.imshow(col_img)
-  # plt.show()
-  # fig = plt.figure()
-  # ax1 = fig.add_subplot(1, 3, 1)
-  # ax2 = fig.add_subplot(1, 3, 2)
-  # ax3 = fig.add_subplot(1, 3, 3)
+#  plt.imshow(col_img)
+#  plt.show()
+  fig = plt.figure()
+  ax1 = fig.add_subplot(1, 3, 1)
+  ax2 = fig.add_subplot(1, 3, 2)
+  ax3 = fig.add_subplot(1, 3, 3)
   
-  # ax1.imshow(image, cmap='gray')
-  # ax2.imshow(coef, cmap='gray')
-  # ax3.imshow(recon, cmap='gray')
-  # plt.show()
+  ax1.imshow(image)
+  ax2.imshow(coef2, cmap='gray')
+  ax3.imshow(col_img)
+  plt.show()
 
   yoda = _maze_derunner(bdct(recon1))
   yoda.split(' ')
