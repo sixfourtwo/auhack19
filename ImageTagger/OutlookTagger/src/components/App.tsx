@@ -1,9 +1,5 @@
 import * as React from 'react';
-//import { Button, ButtonType } from 'office-ui-fabric-react';
-//import Header from './Header';
-//import HeroList, { HeroListItem } from './HeroList';
 import DragUpload from './dragupload/DragUpload';
-import Progress from './Progress';
 
 
 
@@ -13,7 +9,7 @@ export interface AppProps {
 }
 
 export interface AppState {
-    // listItems: HeroListItem[];
+
 }
 
 export default class App extends React.Component<AppProps, AppState> {
